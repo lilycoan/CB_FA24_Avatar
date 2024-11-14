@@ -1,0 +1,18 @@
+//servo for Avatar and Human Jake - spins 180
+Servo myservo;
+const int buttonPin = 2;
+int buttonVal;
+
+void setup() {
+  myservo.attach(9); //servo on pin 9 (can change)
+  pinMode(buttonPid, INPUT);
+}
+
+void loop() {
+  buttonVal = digitalRead(buttonPin);
+  if (digitalRead(buttonPin) == HIGH){
+    myservo.write(180); //servo spins 180
+  } else {
+    myservo.write(0)
+  }
+}
