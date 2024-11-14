@@ -4,15 +4,20 @@ const int buttonPin = 2;
 int buttonVal;
 
 void setup() {
-  myservo.attach(9); //servo on pin 9 (can change)
+  myservo.attach(9); //servo on pin 9 //(can change)
   pinMode(buttonPid, INPUT);
+//Serial.begin(9600)
 }
 
 void loop() {
   buttonVal = digitalRead(buttonPin);
   if (digitalRead(buttonPin) == HIGH){
     myservo.write(180); //servo spins 180
+//Serial.println("button pressed")
   } else {
     myservo.write(0)
+//Serial.println("button released")
   }
+}
+//previousButtonState = ButtonState;
 }
