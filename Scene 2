@@ -1,0 +1,17 @@
+#include <Servo.h>
+
+Servo myservo;
+const int mySwitchPin = 10;
+
+void setup() {
+  pinMode(mySwitchPin, INPUT);
+  myservo.attach(8);
+}
+
+void loop() {
+  if (digitalRead(mySwitchPin)==HIGH){
+    myservo.write(90);
+  } else {
+    myservo.write(0);
+  }
+  }
