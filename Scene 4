@@ -1,0 +1,41 @@
+#include <Servo.h>
+
+Servo myservo;
+Servo myservo2;
+const int mySwitchPin = 10;
+bool myBool = false;
+
+int switchState = 0;
+int prevSwitchState = 0;
+
+int counter = 0;
+
+void setup() {
+  pinMode(mySwitchPin, INPUT);
+  myservo.attach(8);
+  myservo.attach(9);
+}
+
+void loop() {
+  switchState = digitalRead(mySwitchPin);
+
+  if (switchState != prevSwitchState){
+    if (switchState == HIGH){
+      counter++;
+      myBool = !myBool;
+    }
+  }
+
+  if (myBool ==true){
+    myservo.write(120);
+  } else {
+    myservo.write(0);
+  }
+
+  if(counter > 6){
+    myservo2.write(120);
+  }
+
+
+  prevSwitchState = switchState;
+}
