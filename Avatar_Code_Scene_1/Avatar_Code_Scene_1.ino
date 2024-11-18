@@ -2,12 +2,13 @@
 
 Servo myservo;
 const int mySwitchPin = 10;
+const int ledPin = 7;
 bool myBool = false;
 
 void setup() {
   pinMode(mySwitchPin, INPUT);
   myservo.attach(8);
-   pinMode(LED_BUILTIN, OUTPUT);
+  pinMode(LED_BUILTIN, OUTPUT);
 }
 
 void loop() {
