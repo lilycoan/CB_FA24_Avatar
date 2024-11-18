@@ -1,23 +1,26 @@
 //servo for Avatar and Human Jake - spins 180
+#include <Servo.h>
+
 Servo myservo;
-const int buttonPin = 2;
-int buttonVal;
+const int mySwitchPin = 10;
+const int ledPin = 7;
+bool myBool = false;
 
 void setup() {
-  myservo.attach(9); //servo on pin 9 //(can change)
-  pinMode(buttonPid, INPUT);
-//Serial.begin(9600)
+  pinMode(mySwitchPin, INPUT);
+  myservo.attach(8);
+  pinMode(LED_BUILTIN, OUTPUT);
 }
 
 void loop() {
-  buttonVal = digitalRead(buttonPin);
-  if (digitalRead(buttonPin) == HIGH){
-    myservo.write(180); //servo spins 180
-//Serial.println("button pressed")
-  } else {
-    myservo.write(0)
-//Serial.println("button released")
+  if (digitalRead(mySwitchPin)==HIGH){
+    myBool = true;
   }
-}
-//previousButtonState = ButtonState;
+
+  if(myBool == true){
+    myservo.write(180);
+    digitalWrite(LED_BUILTIN, HIGH);
+  } else {
+    digitalWrite(LED_BUILTIN, LOW);
+  }
 }
